@@ -1,0 +1,17 @@
+{
+  "name": "web-scrapers",
+  "version": "1.0.0",
+  "description": "Web scrapers",
+  "main": "elementgamesscraper.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Simon",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.3.0"
+  }
+}
