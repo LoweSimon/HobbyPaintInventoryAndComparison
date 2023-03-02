@@ -1,4 +1,12 @@
-# Hobby-Paint-Inventory-And-Comparison-App
-This is my Project which I am developing an app for Hobby Paints which can be used for an inventory and to compare prices of paints.
+# Hobby-Paint-Inventory-And-Comparison-Website
 
-I will be using the MERN Stack to complete this project.
+
+## Website proposal
+
+This is a project I am undertaking; I am creating a website to compare the prices of specialist paints that are used for hobbies such as Warhammer and Dungeons and Dragons.
+It will be a place not only for price comparions but where you can also create an inventory of your paints to keep a track of what you already own.
+
+
+## Tech stack
+
+I am using the MERN stack to create this Website.
