@@ -30,6 +30,7 @@ async function getElementPaint()    {
             });
         });
 
+        // creating .json file with results
         var itemsString = JSON.stringify(items);
         fs.writeFile("elementpaints.json". itemsString, function(err, result)   {
             if(err) console.log('error', err);
