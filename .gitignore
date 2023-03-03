@@ -2,6 +2,7 @@
 
 # dependencies
 frontend/node_modules
+web-scrapers/node_modules
 /node_modules
 /.pnp
 .pnp.js
