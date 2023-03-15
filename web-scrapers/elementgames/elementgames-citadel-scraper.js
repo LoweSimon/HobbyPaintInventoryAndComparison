@@ -2,7 +2,7 @@ import * as cheerio from 'cheerio';
 import fetch from 'node-fetch';
 import * as fs from 'fs';
 
-async function getElementPaint()   {
+async function getElementCitadelPaint()   {
     try {
         // fetching data from url and store the response
         const response = await fetch('https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints');
@@ -19,20 +19,18 @@ async function getElementPaint()   {
         $('.productgrid > .productinfo').map((i, el)  =>  {
             const paintTitle = $(el).find('.producttitle').text();
             const paintPrice = $(el).find('.price').text();
-            const paintPicture = $(el).find('.productimage img').attr('src');
 
             // adding items to the array
             items.push({
                 paintTitle,
-                paintPrice,
-                paintPicture
+                paintPrice
             });
         });
 
         // creating .json file with results
         console.log(items);
         var itemsString = JSON.stringify(items, null, 2);
-        fs.writeFile("./paint-data/elementgames-base-paints.json", itemsString, function(err, result)  {
+        fs.writeFile("../paint-data/elementgames-citadel-paint.json", itemsString, function(err, result)  {
             if(err) console.log('error', err);
         });
 
@@ -41,4 +39,4 @@ async function getElementPaint()   {
     }
 }
 
-getElementPaint();
+getElementCitadelPaint();
