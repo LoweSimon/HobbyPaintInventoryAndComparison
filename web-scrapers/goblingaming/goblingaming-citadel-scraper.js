@@ -1,11 +1,5 @@
 import puppeteer from "puppeteer";
 
-// TODO: Now it's your turn to improve the scraper and make him get more data from the Quotes to Scrape website.
-// Here's a list of potential improvements you can make:
-// - Navigate between all pages using the "Next" button and fetch the quotes on all the pages
-// - Fetch the quote's tags (each quote has a list of tags)
-// - Scrape the author's about page (by clicking on the author's name on each quote)
-// - Categorize the quotes by tags or authors (it's not 100% related to the scraping itself, but that can be a good improvement)
 
 const getPaint = async () => {
   // Start a Puppeteer session with:
@@ -20,7 +14,7 @@ const getPaint = async () => {
   const page = await browser.newPage();
 
   // On this new page:
-  // - open the "http://quotes.toscrape.com/" website
+  // - open the website
   // - wait until the dom content is loaded (HTML is ready)
   await page.goto("https://www.goblingaming.co.uk/collections/paints-citadel", {
     waitUntil: "domcontentloaded",
