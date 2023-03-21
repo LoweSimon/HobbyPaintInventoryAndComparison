@@ -1,5 +1,6 @@
-import puppeteer from 'puppeteer-extra'
-import StealthPlugin from 'puppeteer-extra-plugin-stealth'
+import puppeteer from 'puppeteer-extra';
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+import * as fs from 'fs';
 
 puppeteer
     .use(StealthPlugin())
@@ -20,11 +21,20 @@ puppeteer
                 const title = quote.querySelector(".product-name").innerText;
                 const price = quote.querySelector(".product-price").innerText;
 
-                return { title, price };
+                    return { 
+                        title, 
+                        price 
+                    };
+
                 });
             });
+        
 
-        console.log(quotes);
+            var itemList = JSON.stringify(quotes, null, 2);
+            fs.writeFile("../paint-data/wayland-citadel-paint.json", itemList, function(err, result)  {
+                if(err) console.log('error', err);
+            });
+        
 
         if (currentPage <= pagesToScrape)    {
             await page.click(".pagination_next a");
@@ -35,8 +45,5 @@ puppeteer
 
         }
 
-
-
-        // await page.screenshot({ path: '../paint-data/stealth.png', fullPage: true })
         await browser.close()
     })
