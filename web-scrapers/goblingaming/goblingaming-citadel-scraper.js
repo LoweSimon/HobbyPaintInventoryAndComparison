@@ -15,32 +15,19 @@ const getPaint = async () => {
     waitUntil: "domcontentloaded",
   });
 
-  let pagesToScrape = 16;
-  let currentPage = 1;
+  while(await page.$(".next a")){
+    await page.click(".next a");
+    const paints = await page.evaluate(() => {
+        const paintItem = document.querySelectorAll(".product-grid__item");
+        return Array.from(paintItem).map((paint) => {
+          const title = paint.querySelector(".product__title").innerText;
+          const price = paint.querySelector(".product__price").innerText;
 
-  while (currentPage < pagesToScrape) {
-    const quotes = await page.evaluate(() => {
-        
-        const quoteList = document.querySelectorAll(".product-grid__item");
-
-        return Array.from(quoteList).map((quote) => {
-        const title = quote.querySelector(".product__title").innerText;
-        const price = quote.querySelector(".product__price").innerText;
-
-        return { title, price };
-        });
+          return { title, price };
+      });
     });
-
-    console.log(quotes);
-
-    if (currentPage <= pagesToScrape)    {
-        await page.click(".next > a");
-        await page.waitForSelector(".product-grid__item");
-        await page.waitForSelector(".next a")
-    } 
-    currentPage++;
-
-}
+    console.log(paints);
+  }
 
   await browser.close();
 };
