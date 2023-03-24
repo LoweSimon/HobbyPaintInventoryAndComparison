@@ -3,6 +3,8 @@ import puppeteer from "puppeteer";
 
 const getPaint = async () => {
 
+  
+
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: null,
@@ -27,6 +29,7 @@ const getPaint = async () => {
       });
     });
     console.log(paints);
+
   }
 
   await browser.close();
