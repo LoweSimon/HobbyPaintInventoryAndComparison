@@ -8,13 +8,17 @@ const websites = [
 ];
 
 for (const url of websites) {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto(url);
-  const title = await page.title();
-  console.log(title);
-  await browser.close();
-}
+  const browser = await puppeteer
+    .use(StealthPlugin())
+    .launch({ headless: true })
+    .then(async browser => {
+        const page = await browser.newPage();
+        await page.goto(url);
+        const title = await page.title();
+        console.log(title);
+        await browser.close();
+      });
+};
 
 
 // import * as cheerio from 'cheerio';
