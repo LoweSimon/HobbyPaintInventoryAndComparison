@@ -30,7 +30,7 @@ async function getElementCitadelPaint()   {
         // creating .json file with results
         console.log(items);
         var itemsString = JSON.stringify(items, null, 2);
-        fs.writeFile("../paint-data/elementgames-citadel-paint.json", itemsString, function(err, result)  {
+        fs.writeFile("../paint-data/elementgames-vallejo-paint.json", itemsString, function(err, result)  {
             if(err) console.log('error', err);
         });
 

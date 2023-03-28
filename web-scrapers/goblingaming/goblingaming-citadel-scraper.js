@@ -1,52 +1,52 @@
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-extra";
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+import AdBlockerPlugin from 'puppeteer-extra-plugin-adblocker';
+puppeteer.use(AdBlockerPlugin()).use(StealthPlugin());
 
-const websites = ['https://elementgames.co.uk/', 'https://www.waylandgames.co.uk/'];
-
-for (const url of websites) {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto(url);
-  const title = await page.title();
-  console.log(title);
-  await browser.close();
-}
+import * as fs from 'fs';
 
 
-// import puppeteer from "puppeteer";
 
-
-// const getPaint = async () => {
+const getPaint = async () => {
 
   
 
-//   const browser = await puppeteer.launch({
-//     headless: false,
-//     defaultViewport: null,
-//   });
+  const browser = await puppeteer.launch({
+    headless: false,
+    defaultViewport: null,
+  });
 
-//   const page = await browser.newPage();
+  const page = await browser.newPage();
 
 
-//   await page.goto("https://www.goblingaming.co.uk/collections/paints-citadel", {
-//     waitUntil: "domcontentloaded",
-//   });
+  await page.goto("https://www.goblingaming.co.uk/collections/paints-citadel", {
+    waitUntil: "domcontentloaded",
+  });
 
-//   while(await page.$(".next a")){
-//     await page.click(".next a");
-//     const paints = await page.evaluate(() => {
-//         const paintItem = document.querySelectorAll(".product-grid__item");
-//         return Array.from(paintItem).map((paint) => {
-//           const title = paint.querySelector(".product__title").innerText;
-//           const price = paint.querySelector(".product__price").innerText;
+  while(await page.$(".next a")){
+    
+    const paints = await page.evaluate(() => {
+        const paintItem = document.querySelectorAll(".product-grid__item");
+        return Array.from(paintItem).map((paint) => {
+          const title = paint.querySelector(".product__title").innerText;
+          const price = paint.querySelector(".product__price").innerText;
 
-//           return { title, price };
-//       });
-//     });
-//     console.log(paints);
+          return { title, price };
+          
+          
+      });
+      
+    });
+    await page.click(".next a");
+    console.log(paints);
+    var items = JSON.stringify(paints, null, 2);
+    fs.writeFile("../paint-data/goblin-citadel-paint.json", items, function(err, result) {
+      if (err) console.log('Error', err);
+    });
 
-//   }
+  }
+  
+  await browser.close();
+};
 
-//   await browser.close();
-// };
-
-// getPaint();
+getPaint();

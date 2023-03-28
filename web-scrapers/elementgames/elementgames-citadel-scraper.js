@@ -3,11 +3,20 @@ import AdBlockerPlugin from 'puppeteer-extra-plugin-adblocker';
 import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 puppeteer.use(AdBlockerPlugin()).use(StealthPlugin());
 
+import * as fs from 'fs';
+
 
 const websites = [
     'https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-base', 
     'https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-technical',
     'https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-contrast',
+    'https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-games-workshop-sprays',
+    'https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-edge',
+    'https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-dry',
+    'https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-glaze',
+    'https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-layer-1',
+    'https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-shade',
+    'https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-air-2',
 ];
 
 for (const url of websites) {
@@ -15,7 +24,9 @@ for (const url of websites) {
     .launch({ headless: true })
     .then(async browser => {
         const page = await browser.newPage();
-        await page.goto(url);
+        await page.goto(url, {
+          waitUntil: "domcontentloaded",
+        });
 
         await page.waitForSelector(".productgrid", {
           waitUntil: "networkidel2",
@@ -33,6 +44,12 @@ for (const url of websites) {
           JSON.parse(data[0]),
           JSON.parse(data[1]),
         ];
+
+        var items = JSON.stringify(data, null, 2);
+        fs.writeFile("../paint-data/elementgames-citadel-paint.json", items, function(err, result) {
+          if(err) console.log('error', err);
+        });
+
         console.log({ paint, price });
         await browser.close();
       });
