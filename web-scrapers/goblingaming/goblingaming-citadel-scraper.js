@@ -39,10 +39,8 @@ const getPaint = async () => {
     });
     await page.click(".next a");
     console.log(paints);
-    var items = JSON.stringify(paints, null, 2);
-    fs.writeFile("../paint-data/goblin-citadel-paint.json", items, function(err, result) {
-      if (err) console.log('Error', err);
-    });
+
+    await fs.writeFile("../paint-data/goblin-citadel-paint.json", JSON.stringify(paints));
 
   }
   

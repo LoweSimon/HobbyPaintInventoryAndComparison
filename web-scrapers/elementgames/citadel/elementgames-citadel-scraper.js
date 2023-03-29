@@ -34,23 +34,33 @@ for (const url of websites) {
         });
 
         const data = await page.evaluate(() => {
-          return [
-            JSON.stringify(document.querySelector(".producttitle").innerText),
-            JSON.stringify(document.querySelector(".price").innerText),
-          ];
+          let paints = [];
+          let elements = document.querySelectorAll('.productgrid');
+
+          for (let element of elements) {
+            let title = element.querySelector(".producttitle").innerText;
+            let price = element.querySelector(".price").innerText;
+
+            paints.push({ title, price });
+          }
+
+          return paints;
+
         });
 
-        const [paint, price] = [
-          JSON.parse(data[0]),
-          JSON.parse(data[1]),
-        ];
+        // const [paint, price] = [
+        //   JSON.parse(data[0]),
+        //   JSON.parse(data[1]),
+        // ];
 
-        var items = JSON.stringify(data, null, 2);
-        fs.writeFile("../paint-data/elementgames-citadel-paint.json", items, function(err, result) {
-          if(err) console.log('error', err);
+        
+
+        fs.writeFile('../paint-data/elementgames-citadel-paint.json', JSON.stringify(data), (err) => {
+          if (err) throw err;
         });
 
-        console.log({ paint, price });
+        // console.log({ paint, price });
         await browser.close();
+        return data;
       });
 };
