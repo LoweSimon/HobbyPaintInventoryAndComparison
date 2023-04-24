@@ -31,7 +31,7 @@ puppeteer
         
 
             var itemList = JSON.stringify(quotes, null, 2);
-            fs.writeFile("../paint-data/wayland-citadel-paint.json", itemList, function(err, result)  {
+            fs.writeFile("./waylandgames-paint-data/wayland-citadel-paint.json", itemList, function(err, result)  {
                 if(err) console.log('error', err);
             });
         
