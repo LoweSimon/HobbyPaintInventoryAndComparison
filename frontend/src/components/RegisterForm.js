@@ -1,11 +1,20 @@
 import React from "react";
+import { useForm } from 'react-hook-form';
+import { Form, Button } from 'react-bootstrap';
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
+    const { register, handleSubmit, errors } = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data);
+    };
+
     return (
-        <div>
-            Registration Form
-        </div>
-    )
-};
+        <Form className="input-form" onSubmit={handleSubmit(onSubmit)}>
 
-export default RegisterForm;
+        </Form>
+    )
+
+}
+
+export default {RegisterForm};
