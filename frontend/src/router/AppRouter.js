@@ -1,16 +1,21 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Container, Col, Row } from "react-bootstrap";
 import RegisterForm from "../components/RegisterForm";
-import Header from "../components/Header";
+import NavMenu from './../components/NavMenu';
 
 const AppRouter = () => (
     <BrowserRouter>
-        <div className="container">
-            <Header />
-            <Routes>
-                <Route path="/" element={<RegisterForm />} exact={true} />
-            </Routes>
-        </div>
+        <Container>
+            <Row>
+                <NavMenu />
+                <Col xs={12} sm={12} md={6} lg={6}>
+                    <Routes>
+                        <Route path="/" element={<RegisterForm />} exact={true} />
+                    </Routes>
+                </Col>
+            </Row>
+        </Container>
     </BrowserRouter>
 );
 
