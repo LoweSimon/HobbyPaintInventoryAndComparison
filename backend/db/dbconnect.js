@@ -13,6 +13,13 @@ async function dbConnect() {
                 useCreateIndex: true,
             }
         )
+        .then(() => {
+            console.log("Successfully connected to MongoDB Atlas!");
+        })
+        .catch((error) => {
+            console.log("Unable to connect!");
+            console.error(error);
+        });
 
 }
 
