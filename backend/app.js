@@ -1,14 +1,28 @@
-import express from "express";
+import express, { response } from "express";
 const app = express();
+
 import bodyParser from "body-parser";
 import bcrypt from 'bcryptjs';
 import jwt from "jsonwebtoken";
 
 import dbConnect from "./db/dbconnect.js";
 import userInformation from './db/userModel.js';
+import auth from "./auth.js";
 
 dbConnect();
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content, Accept, Content-Type, Authroization"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+    );
+    next();
+});
 
 app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
@@ -95,5 +109,15 @@ app.post('/login', (req, res) => {
                 });
             });
     });
+
+
+app.get("/free-endpoint", (req, res) => {
+    res.json({ message: "You are free to access me anytime." });
+});
+
+app.get("/auth-endpoint", auth, (req, res) => {
+    res.json({ message: "You are authorised to access me" });
+});
+
 
 export default app;
