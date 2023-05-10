@@ -1,7 +1,10 @@
 import React from "react";
 import NavMenu from './components/NavMenu';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RegisterForm from "./components/RegisterForm";
+import LoginForm from "./components/LoginForm";
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 
 export default function App() {
@@ -9,7 +12,8 @@ export default function App() {
         <Router>
             <NavMenu />
             <Routes>
-                <Route exact path="/register" element={<RegisterForm />} />
+                <Route exact path="/register" element={ <RegisterForm /> } />
+                <Route exact path="/login" element={ <LoginForm /> } />
             </Routes>
         </Router>
     )
