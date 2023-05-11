@@ -25,8 +25,12 @@ export default function RegisterForm(){
         };
 
         axios(configuration)
-            .then((result) => {console.log(result);})
-            .catch((error) => {console.log(error);})
+            .then((result) => {
+                setRegister(true);
+            })
+            .catch((error) => {
+                error = new Error();
+            });
     }
 
     return (
@@ -92,6 +96,12 @@ export default function RegisterForm(){
                 variant="primary" 
                 type="submit"
                 onClick={(e) => handleSubmit(e)}>Register</Button>
+
+            {register ? (
+                <p className="text-success">You have successfully registered.</p>
+            ) : (
+                <p className="text-danger">Registration not complete.</p>
+            )}    
         </Form>
         </>
     )
