@@ -24,4 +24,4 @@ export const {
     setIsFetching,
 } = userSlice.actions;
 
-export default userSlice.render;
+export default userSlice.reducer;
