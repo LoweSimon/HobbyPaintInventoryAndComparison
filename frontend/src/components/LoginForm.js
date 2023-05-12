@@ -31,7 +31,7 @@ export default function LoginForm(){
                 cookies.set("TOKEN", result.data.token, {
                     path:"/",
                 });
-                window.location.href = "/auth";
+                window.location.href = "/profile";
             })
             .catch((error) => {
                 error = new Error();

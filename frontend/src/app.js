@@ -1,10 +1,11 @@
 import React from "react";
 import NavMenu from './components/NavMenu';
+import Home from "./components/Home";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
-import AuthComponent from "./components/AuthComponent";
+import ProfilePage from "./components/ProfilePage";
 import FreeComponent from "./components/FreeComponent";
-import ProtectedRoutes from "./components/ProtectedRoute";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -16,9 +17,14 @@ export default function App() {
         <Router>
             <NavMenu />
             <Routes>
+                <Route exact path="/" element={ <Home /> } />
                 <Route exact path="/register" element={ <RegisterForm /> } />
                 <Route exact path="/login" element={ <LoginForm /> } />
-                <ProtectedRoutes path="/auth" element={ <AuthComponent /> } />
+                <Route path="/profile" element={
+                    <ProtectedRoute>
+                        <ProfilePage />
+                    </ProtectedRoute>
+                }/>
                 <Route exact path="/free" element={ <FreeComponent /> } />
             </Routes>
         </Router>
