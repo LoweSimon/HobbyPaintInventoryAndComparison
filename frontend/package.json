@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.3.6",
     "bootstrap": "^5.2.3",
-    "node-modules": "^1.0.1",
+    "node-modules": "^0.0.1",
     "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
@@ -17,19 +17,21 @@
     "react-hook-form": "^7.43.9",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^2.1.3",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
-    "sweetalert2": "^11.7.3",
+    "sass": "^1.62.1",
+    "sweetalert2": "^11.4.8",
     "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --max_old_space_size=8192 start",
+    "build": "react-scripts --max_old_space_size=4096 build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "compile:sass": "sass --watch scss:assets/css"
   },
   "eslintConfig": {
     "extends": [

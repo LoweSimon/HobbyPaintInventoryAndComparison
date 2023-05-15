@@ -35,7 +35,7 @@ export default function RegisterForm(){
 
     return (
         <>
-        <h2>Register</h2>
+        <h2 className="text-primary">Register</h2>
         <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Group controlId="formName">
                 <Form.Label>Name: </Form.Label>
