@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from "./app";
 import { Provider } from "react-redux";
 import store from "./redux/Store";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./styles/style.scss"
 
 
 const domNode = document.getElementById('root');

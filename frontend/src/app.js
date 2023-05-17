@@ -14,8 +14,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 export default function App() {
     return (
+        <>
+        <NavMenu />
         <Router>
-            <NavMenu />
             <Routes>
                 <Route exact path="/" element={ <Home /> } />
                 <Route exact path="/register" element={ <RegisterForm /> } />
@@ -28,5 +29,6 @@ export default function App() {
                 <Route exact path="/free" element={ <FreeComponent /> } />
             </Routes>
         </Router>
+        </>
     )
 }
