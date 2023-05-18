@@ -38,8 +38,8 @@ export default function RegisterForm(){
         <h2 className="text-primary text-center">Register</h2>
         
             <Container fluid>                
-                <Row className="d-flex justify-content-center">
-                    <Card className="bg-secondary bg-gradient me-auto mx-auto text-center">
+                <Row className="d-flex justify-content-center" style={{paddingLeft: "20px", paddingRight: "20px"}}>
+                    <Card className="bg-secondary bg-gradient me-auto mx-auto text-center" style={{padding: "10px"}}>
                         <Card.Body>
                             <Form onSubmit={(e) => handleSubmit(e)}>
                                 <Form.Group as={Row} className="mb-4 text-center" controlId="formName">
