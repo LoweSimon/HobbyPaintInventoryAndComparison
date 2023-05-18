@@ -1,4 +1,12 @@
 @charset "UTF-8";
+h2, .h2 {
+  font-size: 36px !important;
+}
+
+.form-label {
+  font-size: 22px !important;
+}
+
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors

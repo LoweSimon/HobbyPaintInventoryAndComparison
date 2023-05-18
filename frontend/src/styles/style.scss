@@ -4,4 +4,12 @@ $primary: #344E41;
 $secondary: #A3B18A;
 $info: #588157;
 
+h2 {
+    font-size: 36px !important;
+}
+
+.form-label {
+    font-size: 22px !important;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
