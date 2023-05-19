@@ -5,7 +5,7 @@ import * as fs from 'fs';
 async function getElementCitadelPaint()   {
     try {
         // fetching data from url and store the response
-        const response = await fetch('https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-layer-1');
+        const response = await fetch('https://elementgames.co.uk/paints-hobby-and-scenery/paints-washes-etc/citadel-games-workshop-paints/citadel-shade');
         // converting the reponse to text format
         const body = await response.text();
 
@@ -28,8 +28,9 @@ async function getElementCitadelPaint()   {
         });
 
         // creating .json file with results
+        console.log(items);
         var itemsString = JSON.stringify(items, null, 2);
-        fs.writeFile("/web-scrapers/paint-data/elementgames-citadel-layer-paint.json", itemsString, function(err, result)  {
+        fs.writeFile("../element-games-paint-data/citadel/citadel-shade-paint.json", itemsString, function(err, result)  {
             if(err) console.log('error', err);
         });
 
