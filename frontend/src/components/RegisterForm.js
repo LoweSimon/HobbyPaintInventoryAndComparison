@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Card, Form, Container, Row, Col } from 'react-bootstrap';
+import { Button, Card, Form, Container, Row } from 'react-bootstrap';
 import axios from "axios";
 
 export default function RegisterForm(){
@@ -38,26 +38,23 @@ export default function RegisterForm(){
         <h2 className="text-primary text-center">Register</h2>
         
             <Container fluid>                
-                <Row className="d-flex justify-content-center" style={{paddingLeft: "20px", paddingRight: "20px"}}>
-                    <Card className="bg-secondary bg-gradient me-auto mx-auto text-center" style={{padding: "10px"}}>
+                <Row className="d-flex px-4" >
+                    <Card className="bg-secondary bg-gradient me-auto mx-auto p-2 shadow-lg">
                         <Card.Body>
                             <Form onSubmit={(e) => handleSubmit(e)}>
-                                <Form.Group as={Row} className="mb-4 text-center" controlId="formName">
-                                    <Form.Label column sm={2}>Name: </Form.Label>
-                                    <Col sm={5}>
-                                        <Form.Control 
+                                <Form.Group className="mb-4 mt-2" controlId="formName">
+                                    <Form.Label>Name: </Form.Label>
+                                        <Form.Control
                                             type="text"
                                             name="name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
                                             placeholder="Enter your name"
                                         />
-                                    </Col>
                                 </Form.Group>
 
-                                <Form.Group as={Row} className="mb-4" controlId="formUsername">
-                                    <Form.Label column sm={2}>Username: </Form.Label>
-                                    <Col sm={5}>
+                                <Form.Group className="mb-4" controlId="formUsername">
+                                    <Form.Label>Username: </Form.Label>
                                         <Form.Control 
                                             type="text"
                                             name="username"
@@ -65,12 +62,10 @@ export default function RegisterForm(){
                                             onChange={(e) => setUsername(e.target.value)}
                                             placeholder="Enter a username"
                                         />
-                                    </Col>
                                 </Form.Group>
 
-                                <Form.Group as={Row} className="mb-4" controlId="formEmail">
-                                    <Form.Label column sm={2}>Email Address: </Form.Label>
-                                    <Col sm={5}>
+                                <Form.Group className="mb-4" controlId="formEmail">
+                                    <Form.Label>Email Address: </Form.Label>
                                         <Form.Control 
                                             type="email"
                                             name="email"
@@ -78,12 +73,10 @@ export default function RegisterForm(){
                                             onChange={(e) => setEmail(e.target.value)}
                                             placeholder="Enter your email"
                                         />
-                                    </Col>
                                 </Form.Group>
 
-                                <Form.Group as={Row} className="mb-4" controlId="formPassword">
-                                    <Form.Label column sm={2}>Enter a password: </Form.Label>
-                                    <Col sm={5}>
+                                <Form.Group className="mb-4" controlId="formPassword">
+                                    <Form.Label>Enter a password: </Form.Label>
                                         <Form.Control 
                                             type="password"
                                             name="password"
@@ -91,12 +84,10 @@ export default function RegisterForm(){
                                             onChange={(e) => setPassword(e.target.value)}
                                             placeholder="Enter a password"
                                         />
-                                    </Col>
                                 </Form.Group>
 
-                                <Form.Group as={Row} className="mb-4" controlId="formConfirmPassword">
-                                    <Form.Label column sm={2}>Confirm Password: </Form.Label>
-                                    <Col sm={5}>
+                                <Form.Group className="mb-4" controlId="formConfirmPassword">
+                                    <Form.Label>Confirm Password: </Form.Label>
                                         <Form.Control 
                                             type="password"
                                             name="confirmpassword"
@@ -104,26 +95,28 @@ export default function RegisterForm(){
                                             onChange={(e) => setConfirmPassword(e.target.value)}
                                             placeholder="Confirm your password"
                                         />
-                                    </Col>
                                 </Form.Group>
 
-                                <Button
-                                    className="my-2" 
-                                    variant="primary" 
-                                    type="submit"
-                                    onClick={(e) => handleSubmit(e)}>Register
-                                </Button>
-
-                                <Button  
-                                    variant="primary" 
-                                    onClick={event => window.location.href='/login'}>Existing Member?
-                                </Button>
+                                <div className="text-center">
+                                    <Button
+                                        size="lg" 
+                                        variant="primary" 
+                                        type="submit"
+                                        onClick={(e) => handleSubmit(e)}>Register
+                                    </Button>
+                            
+                                    <Button
+                                        size="lg" 
+                                        variant="primary" 
+                                        onClick={event => window.location.href='/login'}>Existing Member?
+                                    </Button>
+                                </div>
 
                                 {register ? (
                                     <p className="text-success">You have successfully registered.</p>
                                 ) : (
                                     <p className="text-danger">Registration not complete.</p>
-                                )}    
+                                )}
                             </Form>
                         </Card.Body>
                     </Card>
