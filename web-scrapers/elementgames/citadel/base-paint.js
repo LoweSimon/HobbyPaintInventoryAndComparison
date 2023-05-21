@@ -17,11 +17,15 @@ async function getElementCitadelPaint()   {
 
         // selecting the required classes for the paint information
         $('.productgrid > .productinfo').map((i, el)  =>  {
+            const paintLink = $(el).find('a').attr('href');
+            const paintImage = $(el).find('a > div > img').attr('src');
             const paintTitle = $(el).find('.producttitle').text();
             const paintPrice = $(el).find('.price').text();
 
             // adding items to the array
             items.push({
+                paintLink,
+                paintImage,
                 paintTitle,
                 paintPrice
             });
