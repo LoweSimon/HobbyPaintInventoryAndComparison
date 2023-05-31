@@ -7,6 +7,15 @@ h2, .h2 {
   font-size: 22px !important;
 }
 
+.card {
+  border-radius: 1rem !important;
+}
+
+.nav-link {
+  color: black !important;
+  font-size: 24px !important;
+}
+
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
