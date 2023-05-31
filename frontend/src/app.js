@@ -1,34 +1,30 @@
 import React from "react";
 import NavMenu from './components/NavMenu';
-import Home from "./components/Home";
-import RegisterForm from "./components/RegisterForm";
-import LoginForm from "./components/LoginForm";
-import ProfilePage from "./components/ProfilePage";
-import FreeComponent from "./components/FreeComponent";
-import ProtectedRoute from "./utils/ProtectedRoute";
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from "./pages/Home";
+import RegisterForm from "./pages/RegisterForm";
+import Login from "./pages/LoginForm";
+import ProfilePage from "./pages/ProfilePage";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuthContext } from "./hooks/useAuthContext";
 
 
 
 
 export default function App() {
+
+    const { user } = useAuthContext()
+
     return (
         <>
         <NavMenu />
-        <Router>
+        <BrowserRouter>
             <Routes>
                 <Route exact path="/" element={ <Home /> } />
-                <Route exact path="/register" element={ <RegisterForm /> } />
-                <Route exact path="/login" element={ <LoginForm /> } />
-                <Route path="/profile" element={
-                    <ProtectedRoute>
-                        <ProfilePage />
-                    </ProtectedRoute>
-                }/>
-                <Route exact path="/free" element={ <FreeComponent /> } />
+                <Route exact path="/register" element={ !user ? <RegisterForm /> : <Navigate to="/" /> } />
+                <Route exact path="/login" element={ !user ? <Login /> : <Navigate to="/" /> } />
+                <Route path="/profile" element={ user ? <ProfilePage /> : <Navigate to="/login" /> }/>
             </Routes>
-        </Router>
+        </BrowserRouter>
         </>
     )
 }

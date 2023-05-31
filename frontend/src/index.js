@@ -1,8 +1,10 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
 import App from "./app";
-import { Provider } from "react-redux";
-import store from "./redux/Store";
+import { PaintContextProvider } from "./context/PaintContext";
+import { AuthContextProvider } from "./context/AuthContext";
+
+
 import "./styles/style.scss"
 
 
@@ -10,7 +12,12 @@ const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 
 root.render(
-    <Provider store={store}>
-            <App />
-    </Provider>
+    <React.StrictMode>
+        <AuthContextProvider>
+            <PaintContextProvider>
+                <App />
+            </PaintContextProvider>
+        </AuthContextProvider>
+    </React.StrictMode>
+    
 );
