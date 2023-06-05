@@ -4,11 +4,11 @@ import { useSignUp } from "../hooks/useSignUp";
 
 const RegisterForm = () => {
 
-    // const [name, setName] = useState("");
-    // const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [confirmPassword, setConfirmPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const {signup, error, isLoading} = useSignUp()
 
     const handleSubmit = async (e) => {
@@ -27,7 +27,7 @@ const RegisterForm = () => {
                     <Card className="bg-secondary bg-gradient me-auto mx-auto p-2 shadow-lg">
                         <Card.Body>
                             <Form className="signup" onSubmit={handleSubmit}>
-                                {/* <Form.Group className="mb-4 mt-2" controlId="formName">
+                                <Form.Group className="mb-4 mt-2" controlId="formName">
                                     <Form.Label>Name: </Form.Label>
                                         <Form.Control
                                             type="text"
@@ -36,9 +36,9 @@ const RegisterForm = () => {
                                             onChange={(e) => setName(e.target.value)}
                                             placeholder="Enter your name"
                                         />
-                                </Form.Group> */}
+                                </Form.Group>
 
-                                {/* <Form.Group className="mb-4" controlId="formUsername">
+                                <Form.Group className="mb-4" controlId="formUsername">
                                     <Form.Label>Username: </Form.Label>
                                         <Form.Control 
                                             type="text"
@@ -47,7 +47,7 @@ const RegisterForm = () => {
                                             onChange={(e) => setUsername(e.target.value)}
                                             placeholder="Enter a username"
                                         />
-                                </Form.Group> */}
+                                </Form.Group>
 
                                 <Form.Group className="mb-4" controlId="formEmail">
                                     <Form.Label>Email Address: </Form.Label>
@@ -71,7 +71,7 @@ const RegisterForm = () => {
                                         />
                                 </Form.Group>
 
-                                {/* <Form.Group className="mb-4" controlId="formConfirmPassword">
+                                <Form.Group className="mb-4" controlId="formConfirmPassword">
                                     <Form.Label>Confirm Password: </Form.Label>
                                         <Form.Control 
                                             type="password"
@@ -80,7 +80,7 @@ const RegisterForm = () => {
                                             onChange={(e) => setConfirmPassword(e.target.value)}
                                             placeholder="Confirm your password"
                                         />
-                                </Form.Group> */}
+                                </Form.Group>
 
                                 <div className="text-center">
                                     <Button

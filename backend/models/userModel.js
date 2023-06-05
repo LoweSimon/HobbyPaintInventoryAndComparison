@@ -5,6 +5,16 @@ import validator from 'validator';
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+        unique: false
+    },
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
     email: {
         type: String,
         required: true,
