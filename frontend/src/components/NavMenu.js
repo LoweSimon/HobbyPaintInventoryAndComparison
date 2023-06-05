@@ -33,7 +33,7 @@ export default function NavMenu() {
                                 {user && (
                                     <div>
                                         <span>{user.email}</span>
-                                        <Button onClick={handleClick}>Logout</Button>
+                                        <Button onClick={handleClick} className="m-2">Logout</Button>
                                     </div>    
                                 )}
                                 {!user && (
