@@ -29,11 +29,11 @@ export const getPaint = async (req, res) => {
 
 // create new paint
 export const createPaint = async (req, res) => {
-    const {link, title, price} = req.body
+    const {paintLink, paintTitle, paintPrice, paintImage} = req.body
 
     // add doc to db
     try {
-        const paint = await Paint.create({link, title, price})
+        const paint = await Paint.create({paintLink, paintTitle, paintPrice, paintImage})
         res.status(200).json(paint)
     } catch (error) {
         res.status(400).json({error: error.message})

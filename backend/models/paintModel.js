@@ -3,15 +3,19 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema
 
 const paintSchema = new Schema({
-    link: {
+    paintImage: {
+        type: String,
+        required: false
+    },
+    paintLink: {
         type: String,
         required: true
     },
-    title: {
+    paintTitle: {
         type: String,
         required: true
     },
-    price: {
+    paintPrice: {
         type: String,
         required: true
     }
