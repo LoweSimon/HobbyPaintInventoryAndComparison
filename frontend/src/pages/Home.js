@@ -46,6 +46,7 @@ export default function Home() {
                             <PaintDetails key={paint._id} paint={paint} />
                         ))}
                     </div>
+
                 </Container>
         </div>
     )
