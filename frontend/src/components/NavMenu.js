@@ -25,7 +25,12 @@ export default function NavMenu() {
                         <NavbarCollapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
                                 <Nav.Link href="/">Home</Nav.Link>
-                                <Nav.Link href="/profile">Profile</Nav.Link>
+                                <Nav.Link href="/paints">Paint</Nav.Link>
+                                {user && (
+                                    <div>
+                                        <Nav.Link href="/profile">Profile</Nav.Link>
+                                    </div>
+                                )}
                             </Nav>
                                 
                             
@@ -38,8 +43,10 @@ export default function NavMenu() {
                                 )}
                                 {!user && (
                                     <div>
-                                        <Nav.Link href="/login">Login</Nav.Link>
-                                        <Nav.Link href="/register">Register</Nav.Link>
+                                        <Nav.Item>
+                                            <Button href="/login" className="m-2">Login</Button>
+                                            <Button href="/register">Register</Button>
+                                        </Nav.Item>
                                     </div>
                                 )}
                             </Nav>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Card, Form, Container, Row } from 'react-bootstrap';
+import { Button, Card, Form, Container, Row, Alert } from 'react-bootstrap';
 import { useSignUp } from "../hooks/useSignUp";
 
 const RegisterForm = () => {
@@ -14,7 +14,12 @@ const RegisterForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        await signup(email, password)
+        await signup(name, username, email, password, confirmPassword)
+        if (password !== confirmPassword) {
+            <Alert variant="danger">
+                Passwords do not match!
+            </Alert>
+        }
     }
 
 

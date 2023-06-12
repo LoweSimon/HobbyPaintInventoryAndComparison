@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
+import { Container } from "react-bootstrap";
+
 import { usePaintsContext } from './../hooks/usePaintContext.js';
 // import { useAuthContext } from './../hooks/useAuthContext.js';
 
@@ -38,11 +40,14 @@ export default function Home() {
     return (
         <div className="home">
             <h1 className="text-center">Home Page</h1>
-                <div className="paints">
-                    {paints && paints.map((paint) => (
-                        <PaintDetails key={paint._id} paint={paint} />
-                    ))}
-                </div>
+                <Container className="border border-primary rounded bg-secondary">
+                    <div className="paints">
+                        {paints && paints.map((paint) => (
+                            <PaintDetails key={paint._id} paint={paint} />
+                        ))}
+                    </div>
+
+                </Container>
         </div>
     )
 }
