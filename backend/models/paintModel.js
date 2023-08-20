@@ -8,6 +8,10 @@ const paintSchema = new Schema({
         type: String,
         required: false
     },
+    paintCompany: {
+        type: String,
+        required: true
+    },
     paintTitle: {
         type: String,
         required: true
@@ -19,29 +23,29 @@ const paintSchema = new Schema({
     paintPrice: {
         elementPrice: {
             type: String,
-            required: true
+            required: false
         },
         waylandPrice: {
             type: String,
-            required: true
+            required: false
         },
-        goblinPrice: {
+        hobbyworkshopPrice: {
             type: String,
-            required: true
+            required: false
         },
     },
     paintLink: {
         elementLink: {
             type: String,
-            required: true
+            required: false
         },
         waylandLink: {
             type: String,
-            required: true
+            required: false
         },
-        goblinLink: {
+        hobbyworkshopPrice: {
             type: String,
-            required: true
+            required: false
         }
     }
 }, { timestamps: true })

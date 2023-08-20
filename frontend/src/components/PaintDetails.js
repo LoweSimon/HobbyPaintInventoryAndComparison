@@ -10,13 +10,13 @@ const PaintDetails = ({ paint }) => {
                     <Card.Body>
                     <Card.Img variant='top' src={paint.paintImage} />
                         <div className="paint-details">
-                            <Card.Title className='text-center pt-2'>{paint.paintTitle}</Card.Title>
+                            <Card.Title className='text-center pt-2'>{paint.paintTitle} - {paint.paintCompany}</Card.Title>
                             <p><strong>Type: </strong>{paint.paintType}</p>
                             <p><strong>Prices: </strong></p>
                             <ul>
-                                <li>Element Games: {paint.paintPrice.elementPrice}</li>
-                                <li>Wayland Games: {paint.paintPrice.waylandPrice}</li>
-                                <li>Goblin Gaming: {paint.paintPrice.goblinPrice}</li>
+                                <a href={paint.paintLink.elementLink}><li>Element Games: {paint.paintPrice.elementPrice}</li></a>
+                                <a href={paint.paintLink.waylandLink}><li>Wayland Games: {paint.paintPrice.waylandPrice}</li></a>
+                                <a href={paint.paintLink.hobbyworkshopPrice}><li>Hobby Workshop: {paint.paintPrice.hobbyworkshopPrice}</li></a>
                             </ul>
                         </div>
                         {user && (

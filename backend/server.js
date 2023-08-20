@@ -1,6 +1,5 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import citadelRoutes from './routes/citadel.js';
 import paintRoutes from './routes/paint.js';
 import userRoutes from './routes/user.js';
 import cors from 'cors';
@@ -14,7 +13,7 @@ dotenv.config()
 const app = express()
 
 // middleware
-app.use(express.json())
+app.use(express.json({limit: '50mb'}))
 app.use(cors())
 app.use((req, res, next) => {
     console.log(req.path, req.method)
@@ -22,7 +21,6 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('/citadel-paint/', citadelRoutes)
 app.use('/api/paint', paintRoutes)
 app.use('/api/user', userRoutes)
 
