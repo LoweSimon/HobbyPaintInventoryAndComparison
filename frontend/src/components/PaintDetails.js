@@ -6,9 +6,10 @@ const PaintDetails = ({ paint }) => {
     const { user } = useAuthContext();
 
     return (
+            
                 <Card className='bg-info m-4 w-25'>
                     <Card.Body>
-                    <Card.Img variant='top' src={paint.paintImage} />
+                    <Card.Img variant='top' src={paint.paintImage} alt="Image showing the paint" />
                         <div className="paint-details">
                             <Card.Title className='text-center pt-2'>{paint.paintTitle} - {paint.paintCompany}</Card.Title>
                             <p><strong>Type: </strong>{paint.paintType}</p>
