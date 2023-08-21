@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Card, Form, Container, Row, Alert } from 'react-bootstrap';
+
 import { useSignUp } from "../hooks/useSignUp";
 
 const RegisterForm = () => {
