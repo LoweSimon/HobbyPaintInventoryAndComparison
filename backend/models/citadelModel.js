@@ -50,4 +50,4 @@ const paintSchema = new Schema({
     }
 }, { timestamps: true })
 
-export default mongoose.model('paint', paintSchema);
+export default mongoose.model('citadel', paintSchema);

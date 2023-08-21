@@ -1,4 +1,4 @@
-import Paint from '../models/paintModel.js';
+import Paint from '../models/citadelModel.js';
 import mongoose from 'mongoose';
 
 
