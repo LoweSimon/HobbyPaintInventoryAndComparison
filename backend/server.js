@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import citadelRoutes from './routes/citadel.js';
 import paintRoutes from './routes/paint.js';
 import userRoutes from './routes/user.js';
 import cors from 'cors';
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 })
 
 // routes
+app.use('/api/citadel', citadelRoutes)
 app.use('/api/paint', paintRoutes)
 app.use('/api/user', userRoutes)
 
