@@ -21,4 +21,8 @@ h2 {
     font-size: 24px !important;
 }
 
+.container {
+    overflow-y: auto !important;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
