@@ -11,6 +11,12 @@ h2, .h2 {
   border-radius: 1rem !important;
 }
 
+.card-img-top {
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  width: "50%" !important;
+}
+
 .nav-link {
   color: black !important;
   font-size: 24px !important;
@@ -18,6 +24,14 @@ h2, .h2 {
 
 .container {
   overflow-y: auto !important;
+}
+
+a {
+  color: black !important;
+}
+
+a:hover {
+  color: #A3B18A !important;
 }
 
 /*!

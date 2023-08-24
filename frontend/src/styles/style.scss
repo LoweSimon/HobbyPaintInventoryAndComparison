@@ -16,6 +16,11 @@ h2 {
     border-radius: 1rem !important;
 }
 
+.card-img-top {
+    object-fit: cover !important;
+    width: '50%' !important;
+}
+
 .nav-link {
     color: black !important;
     font-size: 24px !important;
@@ -23,6 +28,14 @@ h2 {
 
 .container {
     overflow-y: auto !important;
+}
+
+a {
+    color: black !important;
+}
+
+a:hover {
+    color: $secondary !important;
 }
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

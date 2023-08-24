@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 import { usePaintsContext } from '../hooks/usePaintContext.js';
 
-import PaintDetails from "../components/PaintDetails.js";
+import { PaintDetails } from "../components/PaintDetails.js";
 import { Container } from 'react-bootstrap';
 
 
@@ -29,7 +29,7 @@ export default function CitadelPage() {
     return (
         <>
 
-        <h1 className="title text-center">Citadel Paint</h1>
+        <h1 className="title text-center"><strong>Citadel Paint</strong></h1>
 
         <Container className="border border-primary rounded bg-secondary">
             <PaintDetails />
