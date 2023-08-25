@@ -22,7 +22,7 @@ export default function HomePage()  {
             <Row>
                 <CardGroup className="mb-4">
                     <Col>
-                            <a href="./citadelpage.js">
+                            <a href="/citadel">
                                 <Card className="border rounded mx-2 h-100">
                                     <Card.Img src={citadelLogo} height="100%"></Card.Img>
                                 </Card>

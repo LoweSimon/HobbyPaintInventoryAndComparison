@@ -7,6 +7,7 @@ import HomePage from "./pages/Home";
 import RegisterForm from "./pages/RegisterForm";
 import Login from "./pages/LoginForm";
 import ProfilePage from "./pages/ProfilePage";
+import CitadelPage from "./pages/CitadelPage.js";
 
 import { useAuthContext } from "./hooks/useAuthContext";
 
@@ -26,6 +27,7 @@ export default function App() {
                 <Route exact path="/register" element={ !user ? <RegisterForm /> : <Navigate to="/" /> } />
                 <Route exact path="/login" element={ !user ? <Login /> : <Navigate to="/" /> } />
                 <Route path="/profile" element={ user ? <ProfilePage /> : <Navigate to="/login" /> }/>
+                <Route path="/citadel" element={ <CitadelPage /> } />
             </Routes>
         </BrowserRouter>
         </>
