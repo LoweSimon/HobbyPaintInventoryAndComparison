@@ -16,11 +16,11 @@ const RegisterForm = () => {
         e.preventDefault();
         
         await signup(name, username, email, password, confirmPassword)
-        if (password !== confirmPassword) {
-            <Alert variant="danger">
-                Passwords do not match!
-            </Alert>
-        }
+        // if (password !== confirmPassword) {
+        //     <Alert variant="danger">
+        //         Passwords do not match!
+        //     </Alert>
+        // }
     }
 
 
