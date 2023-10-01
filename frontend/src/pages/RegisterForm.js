@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Card, Form, Container, Row, Alert } from 'react-bootstrap';
+import { Button, Card, Form, Container, Row } from 'react-bootstrap';
 
 import { useSignUp } from "../hooks/useSignUp";
 
@@ -90,6 +90,7 @@ const RegisterForm = () => {
 
                                 <div className="text-center">
                                     <Button
+                                        className="m-4"
                                         disabled={isLoading}
                                         size="lg" 
                                         variant="primary" 

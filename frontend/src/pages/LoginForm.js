@@ -49,6 +49,7 @@ const Login = () => {
 
                                 <div className="text-center">
                                     <Button
+                                        className="m-4"
                                         disabled={isLoading}
                                         size="lg" 
                                         variant="primary" 

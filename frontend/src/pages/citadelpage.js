@@ -31,7 +31,7 @@ export default function CitadelPage() {
 
         <h1 className="title text-center"><strong>Citadel Paint</strong></h1>
 
-        <Container className="border border-primary rounded bg-secondary">
+        <Container className="border border-primary rounded bg-secondary overflow-scroll vh-100">
             <PaintDetails />
         </Container>
 
