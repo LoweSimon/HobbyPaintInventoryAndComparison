@@ -1,8 +1,12 @@
 // Changing to brand colours
 $body-bg: #DAD7CD;
 $primary: #344E41;
-$secondary: #A3B18A;
+$secondary: hsl(82, 20%, 62%);
 $info: #588157;
+
+body {
+    overflow: hidden;
+}
 
 h2 {
     font-size: 36px !important;

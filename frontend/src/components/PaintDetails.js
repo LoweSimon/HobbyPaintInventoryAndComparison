@@ -21,7 +21,7 @@ export const PaintDetails = () => {
                     <Container>
                         <Col>
                             <CardGroup>
-                                <Card className="flex-fill bg-info mx-auto m-2 shadow" key={id}>
+                                <Card className="flex-fill bg-info mx-auto m-2 shadow over" key={id}>
                                     <Card.Body className='h-100'>
                                     <Card.Img variant='top' height='200px' src={paintImage} alt="Paint Image" />
                                         <div className="paint-details">
